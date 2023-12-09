@@ -1,10 +1,23 @@
+version: '3'
 services:
-  mysql:
-    image: 'mysql:latest'
-    environment:
-      - 'MYSQL_DATABASE=mydatabase'
-      - 'MYSQL_PASSWORD=secret'
-      - 'MYSQL_ROOT_PASSWORD=verysecret'
-      - 'MYSQL_USER=myuser'
+  app:
+    image: 'docker-spring-boot-mysql:latest'  # Change the image name accordingly
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - mysql-db  # Change from postgres-db to mysql-db
     ports:
-      - '3306'
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/springdb  # Change the URL
+      SPRING_DATASOURCE_USERNAME: root  # Change the username
+      SPRING_DATASOURCE_PASSWORD: 12345  # Change the password
+
+  mysql-db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: springdb  # Change the database name
+      MYSQL_ROOT_PASSWORD: 12345  # Change the root password
+    ports:
+      - "3307:3306"
