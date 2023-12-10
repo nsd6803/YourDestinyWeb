@@ -6,13 +6,17 @@ services:
       context: .
     container_name: app
     depends_on:
-      - mysql-db  # Change from postgres-db to mysql-db
+      mysql-db:
+          condition: service_healthy
+
     ports:
       - "8080:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/springdb  # Change the URL
       SPRING_DATASOURCE_USERNAME: root  # Change the username
       SPRING_DATASOURCE_PASSWORD: 12345  # Change the password
+
+
 
   mysql-db:
     image: mysql:latest
@@ -21,3 +25,7 @@ services:
       MYSQL_ROOT_PASSWORD: 12345  # Change the root password
     ports:
       - "3307:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 30s
+      retries: 15
