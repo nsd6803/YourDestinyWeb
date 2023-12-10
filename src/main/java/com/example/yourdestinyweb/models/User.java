@@ -21,14 +21,19 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
+
     @Column(name = "username")
     private String username;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "full_name")
     private String fullName;
+
     @Column(name = "active")
     private Boolean active;
+
     @Column(name = "birthday")
     private Date birthday;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
