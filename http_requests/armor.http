@@ -1,0 +1,2 @@
+GET http://localhost:8080/armor/all
+Content-Type: application/json

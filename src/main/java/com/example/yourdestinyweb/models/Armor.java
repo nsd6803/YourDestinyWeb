@@ -45,6 +45,9 @@ public class Armor {
     @Column(name = "perkdesc")
     private String perk_desc;
 
+    @Column(name = "forclass")
+    private String for_class;
+
     @Column(name = "lore")
     private String lore;
 }

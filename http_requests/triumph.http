@@ -1,0 +1,2 @@
+GET http://localhost:8080/triumph/all
+Content-Type: application/json

@@ -25,19 +25,6 @@ public class Triumph {
     @Lob
     private String icon;
 
-
-    @ElementCollection
-    @CollectionTable(name = "triumph_info", joinColumns = @JoinColumn(name = "triumph_id"))
-    @Column(name = "triumphname")
-    private List<String> triumph_names;
-
-    @ElementCollection
-    @CollectionTable(name = "triumph_info", joinColumns = @JoinColumn(name = "triumph_id"))
-    @Column(name = "triumphdesc")
-    private List<String> triumph_desc;
-
-    @ElementCollection
-    @CollectionTable(name = "triumph_info", joinColumns = @JoinColumn(name = "triumph_id"))
-    @Column(name = "isdone")
-    private List<Boolean> is_done;
+    @OneToMany(mappedBy = "triumph", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<TriumphTasks> triumphTasks;
 }

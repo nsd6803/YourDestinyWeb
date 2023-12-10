@@ -31,13 +31,6 @@ public class Raid {
     @Column(name = "diff")
     private int diff;
 
-    @ElementCollection
-    @CollectionTable(name = "raid_enc", joinColumns = @JoinColumn(name = "raid_id"))
-    @Column(name = "encountername")
-    private List<String> encounter_names;
-
-    @ElementCollection
-    @CollectionTable(name = "raid_enc", joinColumns = @JoinColumn(name = "raid_id"))
-    @Column(name = "encounterdesc")
-    private List<String> encounter_desc;
+    @OneToMany(mappedBy = "raid", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<RaidEncounters> raidEncounters;
 }

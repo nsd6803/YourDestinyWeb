@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "weapon")
 @Data
@@ -14,7 +16,7 @@ public class Weapon {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long Id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -36,25 +38,22 @@ public class Weapon {
     @Column(name = "predicat")
     private String predicat;
 
-
-    @Column(name = "stats")
-    private int[] stats;
-
-
     @Column(name = "isexotic")
-    private Boolean is_exotic;
+    private Boolean isExotic;
 
     @Column(name = "exoticicon")
     @Lob
-    private String exotic_icon;
+    private String exoticIcon;
 
     @Column(name = "perkname")
-    private String perk_name;
+    private String perkName;
 
     @Column(name = "perkdesc")
-    private String perk_desc;
-
+    private String perkDesc;
 
     @Column(name = "lore")
     private String lore;
+
+    @OneToMany(mappedBy = "weapon", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<WeaponStats> weaponStats;
 }

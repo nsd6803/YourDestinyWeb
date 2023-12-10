@@ -31,13 +31,17 @@ public class Dungeon {
     @Column(name = "diff")
     private int diff;
 
-    @ElementCollection
-    @CollectionTable(name = "dungeon_enc", joinColumns = @JoinColumn(name = "dungeon_id"))
-    @Column(name = "encountername")
-    private List<String> encounter_names;
+    @OneToMany(mappedBy = "dungeon", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<DungeonEncounters> dungeonEncounters;
 
-    @ElementCollection
-    @CollectionTable(name = "dungeon_enc", joinColumns = @JoinColumn(name = "dungeon_id"))
-    @Column(name = "encounterdesc")
-    private List<String> encounter_desc;
+    @Override
+    public String toString() {
+        return "Dungeon{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", icon='" + icon + '\'' +
+                ", predicat='" + predicat + '\'' +
+                ", diff=" + diff +
+                '}';
+    }
 }

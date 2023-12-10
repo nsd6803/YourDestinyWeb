@@ -1,0 +1,8 @@
+GET http://localhost:8080/dungeon/all
+Content-Type: application/json
+
+###############################
+
+
+GET http://localhost:8080/raid/all
+Content-Type: application/json
