@@ -27,17 +27,17 @@ public class Triumph {
 
 
     @ElementCollection
-    @CollectionTable(name = "triumph", joinColumns = @JoinColumn(name = "triumph_id"))
+    @CollectionTable(name = "triumph_info", joinColumns = @JoinColumn(name = "triumph_id"))
     @Column(name = "triumphname")
     private List<String> triumph_names;
 
     @ElementCollection
-    @CollectionTable(name = "triumph", joinColumns = @JoinColumn(name = "triumph_id"))
+    @CollectionTable(name = "triumph_info", joinColumns = @JoinColumn(name = "triumph_id"))
     @Column(name = "triumphdesc")
     private List<String> triumph_desc;
 
     @ElementCollection
-    @CollectionTable(name = "triumph", joinColumns = @JoinColumn(name = "triumph_id"))
+    @CollectionTable(name = "triumph_info", joinColumns = @JoinColumn(name = "triumph_id"))
     @Column(name = "isdone")
     private List<Boolean> is_done;
 }

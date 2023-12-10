@@ -28,11 +28,6 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "full_name")
-    private String fullName;
-
-    @Column(name = "active")
-    private Boolean active;
 
     @Column(name = "birthday")
     private Date birthday;
@@ -40,25 +35,20 @@ public class User implements UserDetails {
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Appointment> cartItemList;
+    //@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    //List<Appointment> cartItemList;
 
-    public User(String username, Boolean active, Set<Role> roles) {
+    public User(String username,  Set<Role> roles) {
         this.username = username;
-        this.active = active;
+
         this.roles = roles;
     }
 
-    public String getBirth() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        if (birthday == null) return "NO INFO";
-        return formatter.format(this.birthday);
-    }
 
-    public User(String username, String password, Boolean active, Set<Role> roles) {
+
+    public User(String username, String password, Set<Role> roles) {
         this.username = username;
         this.password = password;
-        this.active = active;
         this.roles = roles;
     }
 

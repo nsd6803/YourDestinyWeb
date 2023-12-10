@@ -32,12 +32,12 @@ public class Raid {
     private int diff;
 
     @ElementCollection
-    @CollectionTable(name = "encounter_table", joinColumns = @JoinColumn(name = "raid_id"))
+    @CollectionTable(name = "raid_enc", joinColumns = @JoinColumn(name = "raid_id"))
     @Column(name = "encountername")
     private List<String> encounter_names;
 
     @ElementCollection
-    @CollectionTable(name = "encounter_table", joinColumns = @JoinColumn(name = "raid_id"))
+    @CollectionTable(name = "raid_enc", joinColumns = @JoinColumn(name = "raid_id"))
     @Column(name = "encounterdesc")
     private List<String> encounter_desc;
 }

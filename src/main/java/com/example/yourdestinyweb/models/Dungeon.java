@@ -32,12 +32,12 @@ public class Dungeon {
     private int diff;
 
     @ElementCollection
-    @CollectionTable(name = "encounter_table", joinColumns = @JoinColumn(name = "dungeon_id"))
+    @CollectionTable(name = "dungeon_enc", joinColumns = @JoinColumn(name = "dungeon_id"))
     @Column(name = "encountername")
     private List<String> encounter_names;
 
     @ElementCollection
-    @CollectionTable(name = "encounter_table", joinColumns = @JoinColumn(name = "dungeon_id"))
+    @CollectionTable(name = "dungeon_enc", joinColumns = @JoinColumn(name = "dungeon_id"))
     @Column(name = "encounterdesc")
     private List<String> encounter_desc;
 }

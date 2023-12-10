@@ -47,7 +47,7 @@ public class UserService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        user.setFullName(fullname);
+        //user.setFullName(fullname);
         userRepository.save(user);
     }
 
