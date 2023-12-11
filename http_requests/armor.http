@@ -1,2 +1,51 @@
 GET http://localhost:8080/armor/all
 Content-Type: application/json
+
+
+############################
+
+GET http://localhost:8080/armor/1
+Content-Type: application/json
+
+############################
+
+POST http://localhost:8080/armor/new
+Content-Type: application/json
+
+{
+  "name": "name",
+  "icon": "name",
+  "picture": "name",
+  "type": "name",
+  "predicat": "name",
+  "exotic_icon": "name",
+  "perk_name": "name",
+  "perk_desc": "name",
+  "for_class": "name",
+  "lore": "name"
+}
+
+
+############################
+
+DELETE http://localhost:8080/armor/delete/2
+Content-Type: application/json
+
+
+##############################
+
+PUT http://localhost:8080/armor/change/3
+Content-Type: application/json
+
+{
+  "name": "nam1e",
+  "icon": "name",
+  "picture": "name1",
+  "type": "name",
+  "predicat": "name",
+  "exotic_icon": "n11ame",
+  "perk_name": "name",
+  "perk_desc": "name",
+  "for_class": "name",
+  "lore": "name"
+}
