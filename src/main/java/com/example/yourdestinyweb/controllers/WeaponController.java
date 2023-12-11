@@ -3,6 +3,7 @@ package com.example.yourdestinyweb.controllers;
 import com.example.yourdestinyweb.models.Dungeon;
 import com.example.yourdestinyweb.models.Triumph;
 import com.example.yourdestinyweb.models.Weapon;
+import com.example.yourdestinyweb.models.WeaponStats;
 import com.example.yourdestinyweb.services.TriumphService;
 import com.example.yourdestinyweb.services.WeaponService;
 import org.springframework.http.HttpStatus;
@@ -68,6 +69,17 @@ public class WeaponController {
     public ResponseEntity<Void> updateWeapon(@PathVariable Long id, @RequestBody Weapon updatedWeapon) {
         try {
             weaponService.updateWeapon(id, updatedWeapon);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            e.printStackTrace();  // Log the exception details
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @PutMapping("/stats/{id}")
+    public ResponseEntity<Void> updateWeaponStats(@PathVariable Long id, @RequestBody WeaponStats updatedWeaponStats) {
+        try {
+            weaponService.updateWeaponStats(id, updatedWeaponStats);
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             e.printStackTrace();  // Log the exception details

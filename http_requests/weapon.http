@@ -76,3 +76,22 @@ Content-Type: application/json
     }
   ]
 }
+
+##############################
+
+PUT http://localhost:8080/weapon/stats/1
+Content-Type: application/json
+
+
+{
+  "id": 52,
+  "impact": 1,
+  "range": 1,
+  "stability": 1,
+  "handling": 1,
+  "reload_speed": 1,
+  "aim_assist": 1,
+  "airborne": 1,
+  "rpm": 1,
+  "mag": 1
+}

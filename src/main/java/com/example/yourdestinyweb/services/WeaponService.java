@@ -82,4 +82,30 @@ public class WeaponService {
         // Save the updated dungeon
         weaponRepository.save(existingWeapon);
     }
+
+    public void updateWeaponStats(Long weaponId, WeaponStats updatedWeaponStats) {
+        Weapon weapon = weaponRepository.findById(weaponId)
+                .orElseThrow(() -> new RuntimeException("Weapon not found"));
+
+        List<WeaponStats> weaponStatsList = weapon.getWeaponStats();
+
+        if (weaponStatsList != null) {
+            for (WeaponStats weaponStats : weaponStatsList) {
+                // Assuming you have a unique identifier in WeaponStats, like id
+                if (weaponStats.getId().equals(updatedWeaponStats.getId())) {
+                    weaponStats.setImpact(updatedWeaponStats.getImpact());
+                    weaponStats.setRange(updatedWeaponStats.getRange());
+                    weaponStats.setStability(updatedWeaponStats.getStability());
+                    weaponStats.setHandling(updatedWeaponStats.getHandling());
+                    weaponStats.setReload_speed(updatedWeaponStats.getReload_speed());
+                    weaponStats.setAim_assist(updatedWeaponStats.getAim_assist());
+                    weaponStats.setAirborne(updatedWeaponStats.getAirborne());
+                    weaponStats.setRpm(updatedWeaponStats.getRpm());
+                    weaponStats.setMag(updatedWeaponStats.getMag());
+                }
+            }
+        }
+
+        weaponRepository.save(weapon);
+    }
 }
