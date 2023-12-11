@@ -3,6 +3,106 @@ Content-Type: application/json
 
 ###############################
 
+GET http://localhost:8080/dungeon/2
+Content-Type: application/json
+
+###############################
+
+POST http://localhost:8080/dungeon/new
+Content-Type: application/json
+
+{
+  "name": "New Dungeon",
+  "icon": "new_icon.png",
+  "predicat": "Some predicat",
+  "diff": 3,
+  "dungeonEncounters": [
+    {
+      "encounter_number": 1,
+      "encounter_name": "bee",
+      "encounter_desc": "ddddd"
+    }
+  ]
+}
+
+
+############################
+
+DELETE http://localhost:8080/dungeon/delete/2
+Content-Type: application/json
+
+
+##############################
+
+PUT http://localhost:8080/dungeon/change/2
+Content-Type: application/json
+
+{
+  "name": "Ne1111w Dungeon",
+  "icon": "new_icon.png",
+  "predicat": "Some predicat",
+  "diff": 3,
+  "dungeonEncounters": [
+    {
+      "encounter_number": 2,
+      "encounter_name": "bee",
+      "encounter_desc": "ddddd"
+    }
+  ]
+}
+
+######################
+
 
 GET http://localhost:8080/raid/all
 Content-Type: application/json
+
+###############################
+
+GET http://localhost:8080/raid/2
+Content-Type: application/json
+
+###############################
+
+POST http://localhost:8080/raid/new
+Content-Type: application/json
+
+{
+  "name": "New Dungeon",
+  "icon": "new_icon.png",
+  "predicat": "Some predicat",
+  "diff": 3,
+  "raidEncounters": [
+    {
+      "encounterNumber": 1,
+      "encounterName": "bee",
+      "encounterDesc": "ddddd"
+    }
+  ]
+}
+
+
+############################
+
+DELETE http://localhost:8080/raid/delete/6
+Content-Type: application/json
+
+
+##############################
+
+PUT http://localhost:8080/raid/change/1
+Content-Type: application/json
+
+{
+  "name": "Ne1111w Dungeon",
+  "icon": "new_icon.png",
+  "predicat": "Some predicat",
+  "diff": 3,
+  "raidEncounters": [
+    {
+      "encounterNumber": 2,
+      "encounterName": "bee",
+      "encounterDesc": "ddddd"
+    }
+  ]
+}
