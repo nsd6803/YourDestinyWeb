@@ -33,7 +33,4 @@ public class TriumphTasks {
 
     @Column(name = "triumphdesc")
     private String triumphDesc;
-
-    @Column(name = "isdone")
-    private Boolean isDone;
 }

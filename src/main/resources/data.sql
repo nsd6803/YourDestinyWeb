@@ -52,8 +52,8 @@ INSERT INTO triumph (name, icon) VALUES
 SET @last_triumph_id = LAST_INSERT_ID();
 
 -- Inserting a record into triumphtasks table
-INSERT INTO triumphtasks (fortriumph, triumphnumber, triumphname, triumphdesc, isdone) VALUES
-    (@last_triumph_id, 1, 'Task 1', 'Description for Task 1', false);
+INSERT INTO triumphtasks (fortriumph, triumphnumber, triumphname, triumphdesc) VALUES
+    (@last_triumph_id, 1, 'Task 1', 'Description for Task 1');
 
 -- Inserting a record into weapon table
 INSERT INTO weapon (name, icon, picture, type, element, predicat, isexotic, exoticicon, perkname, perkdesc, lore) VALUES

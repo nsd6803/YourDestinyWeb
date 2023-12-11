@@ -75,4 +75,5 @@ public class TriumphService {
         // Save the updated dungeon
         triumphRepository.save(existingTriumph);
     }
+
 }

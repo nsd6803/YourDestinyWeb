@@ -3,6 +3,7 @@ package com.example.yourdestinyweb.controllers;
 import com.example.yourdestinyweb.models.Dungeon;
 import com.example.yourdestinyweb.models.Raid;
 import com.example.yourdestinyweb.models.Triumph;
+import com.example.yourdestinyweb.models.TriumphTasks;
 import com.example.yourdestinyweb.services.RaidService;
 import com.example.yourdestinyweb.services.TriumphService;
 import org.springframework.http.HttpStatus;
@@ -72,4 +73,5 @@ public class TriumphController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
 }

@@ -59,7 +59,6 @@ CREATE TABLE IF NOT EXISTS triumphtasks (
                               triumphnumber INT NOT NULL,
                               triumphname VARCHAR(255) NOT NULL,
                               triumphdesc LONGTEXT NOT NULL,
-                              isdone BOOLEAN NOT NULL,
                               FOREIGN KEY (fortriumph) REFERENCES triumph(id) ON DELETE CASCADE
 );
 
