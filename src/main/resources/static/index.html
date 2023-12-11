@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <title>YourDestinyWeb</title>
+    <style>
+        body {
+            background: url('https://gtwallpaper.org/sites/default/files/wallpaper/216571/4k-destiny-2-2019-wallpapers-216571-1401166-8582253.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+
+        }
+
+        .sub_title{
+            padding-top: 30px;
+            font-size: 20px
+        }
+
+        .button-container {
+            margin-top: 550px;
+        }
+
+        .bottom-right-text {
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            font-size: 20px;
+        }
+        .button-85 {
+            font-size: 25px;
+            width: 400px;
+            height: 70px;
+            padding: 0.3em 2em;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #ffffff;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 40px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-85:before {
+            content: "";
+            background: linear-gradient(
+                    45deg,
+                    #ff0000,
+                    #ff2e2e,
+                    #ff5454,
+                    #ff7171,
+                    #ff7f7f,
+                    #ff9797,
+                    #ff9494,
+                    #ffc7c7,
+                    #ffffff
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 40px;
+        }
+
+        @keyframes glowing-button-85 {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 400% 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .button-85:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #222;
+            left: 0;
+            top: 0;
+            border-radius: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="title">
+    YourDestinyWeb
+</div>
+<div class="sub_title">
+    Пользуйся REST API по знаменитой игре "Destiny 2"!
+</div>
+<div class="button-container">
+    <button class="button-85" role="button" onclick="redirectToAnotherPage()">Перейти к EndPoint'ам</button>
+</div>
+
+<div class="bottom-right-text">
+    Автор: Дружченко Николай ИКБО-13-21
+</div>
+<script>
+    function redirectToAnotherPage() {
+        // Замените 'target-page.html' на путь к вашей целевой странице
+        window.location.href = 'http://localhost:8080/swagger-ui/index.html';
+    }
+</script>
+</body>
+</html>
