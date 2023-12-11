@@ -1,2 +1,78 @@
 GET http://localhost:8080/weapon/all
 Content-Type: application/json
+
+############################
+
+GET http://localhost:8080/weapon/1
+Content-Type: application/json
+
+###############################
+
+POST http://localhost:8080/weapon/new
+Content-Type: application/json
+
+{
+  "name": "Example Weapon2",
+  "icon": "Icon URL",
+  "picture": "Picture URL",
+  "type": "Type Example",
+  "element": "Element Example",
+  "predicat": "Predicat Example",
+  "isExotic": true,
+  "exoticIcon": "Exotic Icon URL",
+  "perkName": "Perk Name Example",
+  "perkDesc": "Perk Description Example",
+  "lore": "Lore Example",
+  "weaponStats": [
+    {
+      "impact": 10,
+      "range": 50,
+      "stability": 70,
+      "handling": 80,
+      "reload_speed": 100,
+      "aim_assist": 90,
+      "airborne": 20,
+      "rpm": 600,
+      "mag": 30
+    }
+  ]
+}
+
+
+############################
+
+DELETE http://localhost:8080/weapon/delete/54
+Content-Type: application/json
+
+
+##############################
+
+PUT http://localhost:8080/weapon/change/1
+Content-Type: application/json
+
+{
+  "name": "Example Weapon3",
+  "icon": "Icon URL",
+  "picture": "Picture URL",
+  "type": "Type Example",
+  "element": "Element Example",
+  "predicat": "Predicat Example",
+  "isExotic": true,
+  "exoticIcon": "Exotic Icon URL",
+  "perkName": "Perk Name Example",
+  "perkDesc": "Perk Description Example",
+  "lore": "Lore Example",
+  "weaponStats": [
+    {
+      "impact": 10,
+      "range": 50,
+      "stability": 70,
+      "handling": 80,
+      "reload_speed": 100,
+      "aim_assist": 90,
+      "airborne": 20,
+      "rpm": 600,
+      "mag": 30
+    }
+  ]
+}

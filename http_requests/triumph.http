@@ -1,2 +1,50 @@
 GET http://localhost:8080/triumph/all
 Content-Type: application/json
+
+###################
+
+GET http://localhost:8080/triumph/3
+Content-Type: application/json
+
+###############################
+
+POST http://localhost:8080/triumph/new
+Content-Type: application/json
+
+{
+  "name": "New Dungeon",
+  "icon": "new_icon.png",
+  "triumphTasks": [
+    {
+      "triumphNumber": 1,
+      "triumphName": "bee",
+      "triumphDesc": "ddddd",
+      "isDone": false
+    }
+  ]
+}
+
+
+############################
+
+DELETE http://localhost:8080/triumph/delete/2
+Content-Type: application/json
+
+
+##############################
+
+PUT http://localhost:8080/triumph/change/3
+Content-Type: application/json
+
+{
+  "name": "New D111111111ungeon",
+  "icon": "new_icon.png",
+  "triumphTasks": [
+    {
+      "triumphNumber": 1,
+      "triumphName": "bee",
+      "triumphDesc": "ddddd",
+      "isDone": false
+    }
+  ]
+}
