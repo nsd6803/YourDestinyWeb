@@ -65,3 +65,10 @@ SET @last_weapon_id = LAST_INSERT_ID();
 -- Inserting a record into weaponstats table
 INSERT INTO weaponstats (weapon_id, impact, range_, stability, handling, reloadspeed, aimassist, airborne, rpm, mag) VALUES
     (@last_weapon_id, 10, 50, 70, 80, 100, 90, 20, 600, 30);
+
+INSERT INTO news (article, date, link_) VALUES
+    ('TWAB', '2023.12.27', 'https://www.bungie.net/7/en/News/article/this-week-in-destiny-12-07-23'),
+    ('TWAB', '2023.10.07', 'https://www.bungie.net/7/en/News/article/this-week-in-destiny-12-07-23'),
+    ('TWAB', '2022.12.06', 'https://www.bungie.net/7/en/News/article/this-week-in-destiny-12-07-23'),
+    ('TWAB', '2022.11.07', 'https://www.bungie.net/7/en/News/article/this-week-in-destiny-12-07-23'),
+    ('TWAB', '2023.01.30', 'https://www.bungie.net/7/en/News/article/this-week-in-destiny-12-07-23');

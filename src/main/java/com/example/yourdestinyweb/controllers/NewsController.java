@@ -1,8 +1,9 @@
 package com.example.yourdestinyweb.controllers;
 
-import com.example.yourdestinyweb.models.Armor;
 import com.example.yourdestinyweb.models.Dungeon;
+import com.example.yourdestinyweb.models.News;
 import com.example.yourdestinyweb.services.DungeonService;
+import com.example.yourdestinyweb.services.NewsService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,41 +12,41 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@Tag(name = "Подземелья", description = "вся информация по подземельям")
+@Tag(name = "Новости", description = "вся информация о новостях")
 @RestController
-@RequestMapping("/dungeon")
-public class DungeonController {
+@RequestMapping("/news")
+public class NewsController {
 
-    private final DungeonService dungeonService;
+    private final NewsService newsService;
 
-    public DungeonController(DungeonService dungeonService) {
-        this.dungeonService = dungeonService;
+    public NewsController(NewsService newsService) {
+        this.newsService = newsService;
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Dungeon>> allDungeon() {
-        List<Dungeon> dungeons = dungeonService.allDungeon();
+    public ResponseEntity<List<News>> allDungeon() {
+        List<News> news = newsService.allNews();
         return ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(dungeons);
+                .body(news);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Dungeon> dungeon(Model model, @PathVariable Long id) {
-        Dungeon dungeon = dungeonService.find_Dungeon(id).getBody();
+    public ResponseEntity<News> news(Model model, @PathVariable Long id) {
+        News news = newsService.find_News(id).getBody();
 
-        if (dungeon != null) {
-            return ResponseEntity.ok(dungeon);
+        if (news != null) {
+            return ResponseEntity.ok(news);
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
 
     @PostMapping("/new")
-    public ResponseEntity<Dungeon> add_Dungeon(@RequestBody Dungeon dungeon) {
+    public ResponseEntity<News> add_Dungeon(@RequestBody News news) {
         try {
-            dungeonService.saveDungeon(dungeon);
-            return ResponseEntity.ok(dungeon);
+            newsService.saveNews(news);
+            return ResponseEntity.ok(news);
         } catch (Exception e) {
             e.printStackTrace();  // Log the exception details
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -53,9 +54,9 @@ public class DungeonController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteDungeon(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteNews(@PathVariable Long id) {
         try {
-            dungeonService.deleteDungeonById(id);
+            newsService.deleteNewsById(id);
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             e.printStackTrace();  // Log the exception details
@@ -64,9 +65,9 @@ public class DungeonController {
     }
 
     @PutMapping("/change/{id}")
-    public ResponseEntity<Void> updateDungeon(@PathVariable Long id, @RequestBody Dungeon updatedDungeon) {
+    public ResponseEntity<Void> updateDungeon(@PathVariable Long id, @RequestBody News updatedNews) {
         try {
-            dungeonService.updateDungeon(id, updatedDungeon);
+            newsService.updateNews(id, updatedNews);
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             e.printStackTrace();  // Log the exception details

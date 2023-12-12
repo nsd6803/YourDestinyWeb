@@ -14,7 +14,6 @@ import java.util.Optional;
 public class ArmorService {
     private final ArmorRepository armorRepository;
 
-    @Autowired
     public ArmorService(ArmorRepository armorRepository) {
         this.armorRepository = armorRepository;
     }

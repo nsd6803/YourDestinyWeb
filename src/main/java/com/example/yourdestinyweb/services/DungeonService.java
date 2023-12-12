@@ -16,7 +16,7 @@ public class DungeonService {
 
     private final DungeonRepository dungeonRepository;
 
-    @Autowired
+
     public DungeonService(DungeonRepository dungeonRepository) {
         this.dungeonRepository = dungeonRepository;
     }

@@ -91,3 +91,10 @@ CREATE TABLE IF NOT EXISTS weaponstats (
                              mag INT,
                              FOREIGN KEY (weapon_id) REFERENCES weapon(id) ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS news (
+                             id BIGINT PRIMARY KEY AUTO_INCREMENT,
+                             article longtext NOT NULL,
+                             date DATE NOT NULL,
+                             link_ longtext NOT NULL
+);
