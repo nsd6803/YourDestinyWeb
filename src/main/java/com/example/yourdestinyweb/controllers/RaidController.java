@@ -4,6 +4,7 @@ import com.example.yourdestinyweb.models.Dungeon;
 import com.example.yourdestinyweb.models.Raid;
 import com.example.yourdestinyweb.services.DungeonService;
 import com.example.yourdestinyweb.services.RaidService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Рейды", description = "вся информация по рейдам")
 @RestController
 @RequestMapping("/raid")
 public class RaidController {

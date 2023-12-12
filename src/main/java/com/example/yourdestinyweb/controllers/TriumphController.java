@@ -6,6 +6,7 @@ import com.example.yourdestinyweb.models.Triumph;
 import com.example.yourdestinyweb.models.TriumphTasks;
 import com.example.yourdestinyweb.services.RaidService;
 import com.example.yourdestinyweb.services.TriumphService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@Tag(name = "Триумфы", description = "вся информация по триумфам")
 @RestController
 @RequestMapping("/triumph")
 public class TriumphController {
