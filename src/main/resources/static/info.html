@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <title>YourDestinyWeb</title>
+    <style>
+        body {
+            background: url('https://mir-s3-cdn-cf.behance.net/project_modules/source/05ecd052927015.5924aab22d01e.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+
+        }
+
+        .sub_title{
+            padding-top: 30px;
+            font-size: 20px
+        }
+
+        .info{
+            padding-top: 30px;
+            font-size: 16px
+        }
+
+        .question-mark {
+            position: fixed;
+            top: 30px;
+            left: 50px; /* Размер изображения */
+            height: 150px; /* Размер изображения */
+            cursor: pointer;
+        }
+        .button-info {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .button-info {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        .bottom-right-text {
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.71);
+        }
+
+    </style>
+</head>
+<body>
+<div class="question-mark">
+    <button class="button-info" onclick="redirectIndex()">
+        <img src="arrow.png" alt="Question Mark" width="45" height="30">
+    </button>
+</div>
+<div class="title">
+    YourDestinyWeb
+</div>
+<div class="sub_title">
+    Пользуйся REST API по знаменитой игре "Destiny 2"!
+</div>
+<div class="info">
+    Добро пожаловать!
+</div>
+<div class="bottom-right-text">
+    Проект разработан: Дружченко Николай ИКБО-13-21
+</div>
+<script>
+    function redirectIndex() {
+        window.location.href = 'http://localhost:8080/index.html';
+    }
+
+</script>
+</body>
+</html>
