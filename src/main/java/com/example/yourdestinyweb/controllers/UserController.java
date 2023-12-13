@@ -1,25 +1,26 @@
 package com.example.yourdestinyweb.controllers;
 
+
 import com.example.yourdestinyweb.models.User;
-import com.example.yourdestinyweb.services.UserService;
-import org.springframework.http.MediaType;
+import com.example.yourdestinyweb.services.impl.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
+//чтобы админ мог смотреть информацию о каком-либо пользователе
 @RestController
+@RequestMapping("/api/admin/")
+@RequiredArgsConstructor
 public class UserController {
 
-    private UserService service;
+    private final UserService userService;
 
-    public UserController(UserService service) {
-        this.service = service;
-    }
-
-    @GetMapping(path = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody List<User> getAll() {
-        return this.service.getAll();
+    @GetMapping("user-info/{id}")
+    public ResponseEntity<User> getUser(@PathVariable Long id){
+        User user = userService.getUserFromBd(id);
+        return ResponseEntity.ok(user);
     }
 }
