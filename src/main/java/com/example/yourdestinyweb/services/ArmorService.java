@@ -2,8 +2,6 @@ package com.example.yourdestinyweb.services;
 
 import com.example.yourdestinyweb.models.Armor;
 import com.example.yourdestinyweb.repositories.ArmorRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

@@ -4,6 +4,7 @@ import com.example.yourdestinyweb.models.Dungeon;
 import com.example.yourdestinyweb.models.News;
 import com.example.yourdestinyweb.services.DungeonService;
 import com.example.yourdestinyweb.services.NewsService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @Tag(name = "Новости", description = "вся информация о новостях")
 @RestController
+@SecurityRequirement(name = "JWT")
 @RequestMapping("/news")
 public class NewsController {
 

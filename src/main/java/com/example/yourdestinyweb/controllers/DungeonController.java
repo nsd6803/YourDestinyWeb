@@ -3,6 +3,7 @@ package com.example.yourdestinyweb.controllers;
 import com.example.yourdestinyweb.models.Armor;
 import com.example.yourdestinyweb.models.Dungeon;
 import com.example.yourdestinyweb.services.DungeonService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @Tag(name = "Подземелья", description = "вся информация по подземельям")
 @RestController
+@SecurityRequirement(name = "JWT")
 @RequestMapping("/dungeon")
 public class DungeonController {
 

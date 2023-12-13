@@ -17,7 +17,6 @@ services:
       SPRING_DATASOURCE_PASSWORD: 12345  # Change the password
 
 
-
   mysql-db:
     image: mysql:latest
     environment:

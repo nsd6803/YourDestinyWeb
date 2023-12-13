@@ -6,6 +6,7 @@ import com.example.yourdestinyweb.models.Weapon;
 import com.example.yourdestinyweb.models.WeaponStats;
 import com.example.yourdestinyweb.services.TriumphService;
 import com.example.yourdestinyweb.services.WeaponService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Tag(name = "Оружие", description = "вся информация по оружию")
 @RestController
+@SecurityRequirement(name = "JWT")
 @RequestMapping("/weapon")
 public class WeaponController {
     private final WeaponService weaponService;
