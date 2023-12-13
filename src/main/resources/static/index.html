@@ -29,7 +29,14 @@
             padding-top: 30px;
             font-size: 20px
         }
-
+        .fordevs{
+            position: fixed;
+            top: 30px;
+            left: 50px; /* Размер изображения */
+            height: 150px; /* Размер изображения */
+            cursor: pointer;
+            color: white;
+        }
         .question-mark {
             position: fixed;
             top: 30px;
@@ -41,6 +48,10 @@
             background: none;
             border: none;
             cursor: pointer;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+
         }
 
         .button-container {
@@ -126,6 +137,11 @@
     </style>
 </head>
 <body>
+<div class="fordevs">
+    <button class="button-info" onclick="redirectToSignUp()">
+        Получить доступ разработчику
+    </button>
+</div>
 <div class="question-mark">
     <button class="button-info" onclick="redirectToInfoPage()">
         <img src="question_mark.png" alt="Question Mark" width="20" height="30">
@@ -147,7 +163,11 @@
 </div>
 <script>
     function redirectToAnotherPage() {
-        window.location.href = 'http://localhost:8080/auth';
+        window.location.href = 'http://localhost:8080/swagger-ui/index.html';
+    }
+
+    function redirectToSignUp() {
+        window.location.href = 'http://localhost:8080/forDevs';
     }
 
     function redirectToInfoPage() {

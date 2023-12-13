@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 services:
   app:
     image: 'docker-spring-boot-mysql:latest'  # Change the image name accordingly

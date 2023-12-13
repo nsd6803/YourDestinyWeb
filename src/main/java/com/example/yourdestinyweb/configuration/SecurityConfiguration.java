@@ -36,16 +36,17 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable) // Отключение CSRF-защиты
-                .cors(Customizer.withDefaults()) // Включение настроек CORS по умолчанию
+                .csrf(AbstractHttpConfigurer::disable)
+                .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(
                         (request) -> request
-                                .requestMatchers("armor/**", "dungeon/**","news/**",
-                                        "raid/**","triumph/**","weapon/**").hasRole("ADMIN")
-                                .requestMatchers("/api/auth/**").permitAll() // Открытый доступ к аутентификации
-                                .anyRequest().authenticated() // Все остальные запросы требуют аутентификации
+                                .requestMatchers("index.html", "info.html", "/", "forDevs", "api/auth/**",
+                                        "swagger-ui/**", "/v3/api-docs", "/configuration/**", "/swagger*/**",
+                                        "/webjars/**", "/swagger-ui.html", "/v3/api-docs/swagger-config").permitAll()  // Permit access to /index.html without authentication or role
+                                .requestMatchers("armor/**", "dungeon/**", "news/**", "raid/**", "triumph/**", "weapon/**").hasRole("ADMIN")
+                                .anyRequest().authenticated()
                 )
-                .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS)) // Управление сессиями
+                .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
