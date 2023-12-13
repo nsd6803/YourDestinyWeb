@@ -33,6 +33,9 @@ public class UserService {
         if (Objects.isNull(u)) {
             return "Not found";
         }
+        else if (!Objects.equals(u.getPassword(), user.getPassword())){
+            return "Incorrect password";
+        }
         else{
             return "ok";
         }

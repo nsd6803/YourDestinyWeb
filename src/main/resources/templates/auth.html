@@ -2,9 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourDestinyWeb</title>
 </head>
 <body>
 
+<h2>Login Page</h2>
+
+<form id="loginForm">
+    <label for="login">Login:</label>
+    <input type="text" id="login" name="login" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <button type="submit">Login</button>
+</form>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var login = document.getElementById("login").value;
+        var password = document.getElementById("password").value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8080/auth/login", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.status === "ok") {
+                        window.location.href = "http://localhost:8080/swagger-ui/index.html#/";
+                    }
+                    else if (response.status === "Incorrect password") {
+                        alert("ОШИБКА. Статус: Incorrect password");
+                    }
+                    else if (response.status === "Not found") {
+                        alert("ОШИБКА. Статус: Not found");
+                    }
+                    else if (response.status === "Unknown") {
+                        alert("ОШИБКА. Статус: Unknown");
+                    }
+                } else {
+                    alert("An error occurred during the login request.");
+                }
+            }
+        };
+
+        var data = JSON.stringify({login: login, password: password});
+        xhr.send(data);
+    });
+</script>
+
 </body>
 </html>
+
+
+

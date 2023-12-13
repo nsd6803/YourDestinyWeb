@@ -1,14 +1,9 @@
 package com.example.yourdestinyweb.controllers;
 
 import com.example.yourdestinyweb.models.User;
-import com.example.yourdestinyweb.services.LoginRequest;
 import com.example.yourdestinyweb.services.LoginResponse;
 import com.example.yourdestinyweb.services.UserService;
 import org.springframework.http.MediaType;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
@@ -28,8 +23,12 @@ public class AuthController {
         String user2 = userService.checkUser(user);
         if (Objects.equals(user2, "ok")) {
             return new LoginResponse("ok");
-        } else {
-            return new LoginResponse("error");
+        } else if (Objects.equals(user2, "Not found")) {
+            return new LoginResponse("Not found");
         }
+        else if (Objects.equals(user2, "Incorrect password")) {
+            return new LoginResponse("Incorrect password");
+        }
+        return new LoginResponse("Unknown");
     }
 }

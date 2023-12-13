@@ -9,7 +9,7 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 @OpenAPIDefinition(
         info = @Info(
                 title = "YourDestinyWeb Api",
-                description = "Все доступные ручки для взаимодействия. Предназначено как для мобильного приложения" +
+                description = "Все доступные ручки для взаимодействия. Предназначено как для мобильного приложения " +
                         "'YourDestiny', так и для разработки других сервисов", version = "1.0.0"
         )
 )
