@@ -4,26 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YourDestinyWeb</title>
+    <style>
+        body {
+            background: url('https://mir-s3-cdn-cf.behance.net/project_modules/source/05ecd052927015.5924aab22d01e.png') no-repeat center center fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        #loginForm {
+            color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #383838;
+        }
+
+        h2 {
+            color: #fcfcfc;
+        }
+
+        label {
+            color: white;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        .question-mark {
+            position: fixed;
+            top: 30px;
+            left: 50px; /* Размер изображения */
+            height: 150px; /* Размер изображения */
+            cursor: pointer;
+        }
+        .button-info {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        button {
+            background-color: #c29112;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #tokenDisplay {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+            border-radius: 8px;
+            max-width: 100%;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+
+        .bottom-right-text {
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.71);
+        }
+    </style>
 </head>
 <body>
+<div class="question-mark">
+    <button class="button-info" onclick="redirectIndex()">
+        <img src="/arrow.png" alt="Question Mark" width="45" height="30">
+    </button>
+</div>
+<div id="container">
+    <h2>Получение токена разработчика</h2>
 
-<h2>Получение токена разработчика</h2>
+    <form id="loginForm">
+        <label for="email">Почта</label>
+        <input type="text" id="email" name="email" required><br>
 
-<form id="loginForm">
-    <label for="email">Почта:</label>
-    <input type="text" id="email" name="email" required><br>
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="password" required><br>
 
-    <label for="password">Пароль:</label>
-    <input type="password" id="password" name="password" required><br>
+        <label for="role">Роль (указать ROLE_ADMIN)</label>
+        <input type="text" id="role" name="role" required><br>
 
-    <label for="role">Роль(указать ROLE_ADMIN):</label>
-    <input type="text" id="role" name="role" required><br>
+        <button type="submit">Получить токен</button>
+    </form>
 
-    <button type="submit">Получить токен</button>
-</form>
-
-<!-- New element to display the token -->
-<div id="tokenDisplay"></div>
+    <!-- New element to display the token -->
+    <div id="tokenDisplay"></div>
+    <div class="bottom-right-text">
+        Проект разработан: Дружченко Николай ИКБО-13-21
+    </div>
+</div>
 
 <script>
     document.getElementById("loginForm").addEventListener("submit", function (event) {
@@ -53,6 +148,10 @@
         var data = JSON.stringify({email: email, password: password, role: role});
         xhr.send(data);
     });
+
+    function redirectIndex() {
+        window.location.href = 'index.html';
+    }
 </script>
 
 </body>

@@ -42,7 +42,8 @@ public class SecurityConfiguration {
                         (request) -> request
                                 .requestMatchers("index.html", "info.html", "/", "forDevs", "api/auth/**",
                                         "swagger-ui/**", "/v3/api-docs", "/configuration/**", "/swagger*/**",
-                                        "/webjars/**", "/swagger-ui.html", "/v3/api-docs/swagger-config").permitAll()  // Permit access to /index.html without authentication or role
+                                        "/webjars/**", "/swagger-ui.html", "/v3/api-docs/swagger-config",
+                                        "/question_mark.png", "/arrow.png","resources/static/arrow.png").permitAll()  // Permit access to /index.html without authentication or role
                                 .requestMatchers("armor/**", "dungeon/**", "news/**", "raid/**", "triumph/**", "weapon/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
